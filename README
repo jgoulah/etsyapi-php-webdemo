@@ -1,0 +1,15 @@
+The key and secret are picked up from environment variables 
+and so the virtual host must define them, for example in /etc/httpd/conf.d/ add a .conf file with:
+
+<VirtualHost *:9000>                                                                                                                                          
+  DocumentRoot /path/to/oauth-sample                                                                                                                     
+  SetEnv OAUTH_CONSUMER_KEY 'yourkey'                                                                                                        
+  SetEnv OAUTH_CONSUMER_SECRET 'yoursecret'                                                                                                                   
+</VirtualHost> 
+
+And you will probably need to add to /etc/httpd/conf/httpd.conf
+ Listen 9000
+
+Restart apache
+
+Then hit your server on port 9000
